@@ -2,3 +2,7 @@ Flask
 gTTS
 googletrans==4.0.0-rc1
 pdfplumber
+Flask
+gtts
+pdfplumber
+deep-translator
