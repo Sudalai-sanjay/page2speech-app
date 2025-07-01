@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page2Speech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Page2Speech: PDF to Audio Translator</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="pdf" required><br>
+            <select name="language" required>
+                <option value="ta">Tamil</option>
+                <option value="hi">Hindi</option>
+                <option value="en">English</option>
+                <option value="fr">French</option>
+            </select><br>
+            <button type="submit">Convert to Audio</button>
+        </form>
+
+        {% if audio %}
+            <h2>🎧 Your Audio Output:</h2>
+            <audio controls>
+                <source src="{{ url_for('static', filename='output.mp3') }}" type="audio/mp3">
+            </audio>
+            <br>
+            <a href="{{ url_for('static', filename='output.mp3') }}" download>⬇️ Download Audio</a>
+        {% endif %}
+    </div>
+</body>
+</html>
